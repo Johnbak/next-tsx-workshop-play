@@ -13,7 +13,25 @@ export default function Layout({ children }: Props): ReactElement {
       <Header />
       <Menu />
       {children}
-      <Footer />
+      <Footer
+        style={{
+          position: "fixed",
+          left: 0,
+          bottom: 0,
+          width: "100%",
+          backgroundColor: "black",
+          color: "white",
+          textAlign: "center",
+          padding: 8,
+        }}
+      />
+      <style jsx global>
+        {`
+          body {
+            margin: 0;
+          }
+        `}
+      </style>
     </React.Fragment>
   );
 }
