@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function login({}: Props): ReactElement {
+export default function register({}: Props): ReactElement {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -41,7 +41,7 @@ export default function login({}: Props): ReactElement {
         <Card className={classes.root}>
           <CardMedia
             className={classes.media}
-            image="/static/img/e5.jpg"
+            image="/static/img/e6.jpg"
             title="Contemplative Reptile"
           />
           <CardContent>
@@ -75,17 +75,18 @@ export default function login({}: Props): ReactElement {
                 color="primary"
                 className={classes.submit}
               >
-                Sign In
+                Register
               </Button>
               <Button
                 fullWidth
                 size="small"
                 color="primary"
                 onClick={() => {
-                  Router.push("/register");
+                  // Router.back();
+                  Router.push("/login");
                 }}
               >
-                Register
+                Cancel
               </Button>
             </form>
           </CardContent>
