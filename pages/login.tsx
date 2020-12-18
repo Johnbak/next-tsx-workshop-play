@@ -33,6 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const onClickLogin = () => {
+  Router.push("/stock");
+};
+
 export default function login({}: Props): ReactElement {
   const classes = useStyles();
   return (
@@ -74,6 +78,7 @@ export default function login({}: Props): ReactElement {
                 variant="contained"
                 color="primary"
                 className={classes.submit}
+                onClick={onClickLogin}
               >
                 Sign In
               </Button>
