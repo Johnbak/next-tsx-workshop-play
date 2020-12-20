@@ -5,6 +5,8 @@ import Menu from "../components/layouts/menu";
 import MaterialTable from "material-table";
 import { products } from "./api/dummy";
 import Typography from "@material-ui/core/Typography";
+import Moment from "react-moment";
+import NumberFormat from "react-number-format";
 
 interface Props {}
 
@@ -16,7 +18,14 @@ export default function stock({}: Props): ReactElement {
     },
     {
       title: "IMAGE",
-      field: "image",
+      cellStyle: { padding: 0 },
+      render: (item) => (
+        <img
+          src="https://sterkowski.com/3785-large_default/peaky-blinders-cap-harris-tweed.jpg"
+          alt=""
+          style={{ width: 70, height: 70, borderRadius: "50%" }}
+        />
+      ),
     },
     {
       title: "NAME",
@@ -25,15 +34,41 @@ export default function stock({}: Props): ReactElement {
     },
     {
       title: "PRICE",
-      field: "price",
+      render: (item) => (
+        <Typography variant="body1">
+          <NumberFormat
+            value={item.price}
+            displayType={"text"}
+            thousandSeparator={true}
+            decimalScale={2}
+            fixedDecimalScale={true}
+            prefix={"฿ "}
+          />
+        </Typography>
+      ),
     },
     {
       title: "STOCK",
-      field: "stock",
+      render: (item) => (
+        <Typography variant="body1">
+          <NumberFormat
+            value={item.stock}
+            displayType={"text"}
+            thousandSeparator={true}
+            decimalScale={0}
+            fixedDecimalScale={true}
+            suffix={" psc"}
+          />
+        </Typography>
+      ),
     },
     {
       title: "CREATED",
-      field: "updatedAt",
+      render: (item) => (
+        <Typography>
+          <Moment format="DD/MM/YY">{item.updatedAt}</Moment>
+        </Typography>
+      ),
     },
   ];
   return (

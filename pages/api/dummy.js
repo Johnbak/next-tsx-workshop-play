@@ -39,7 +39,7 @@ export const products = [
     id: 14,
     name: "E",
     image: "14.jpg",
-    price: 100,
+    price: 10000,
     stock: 10,
     createdAt: "2019-06-18T10:47:04.875Z",
     updatedAt: "2019-06-18T10:52:51.287Z",
