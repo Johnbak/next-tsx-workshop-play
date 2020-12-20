@@ -4,6 +4,7 @@ import Layout from "../components/layouts/layout";
 import Menu from "../components/layouts/menu";
 import MaterialTable from "material-table";
 import { products } from "./api/dummy";
+import Typography from "@material-ui/core/Typography";
 
 interface Props {}
 
@@ -11,7 +12,7 @@ export default function stock({}: Props): ReactElement {
   const columns = [
     {
       title: "ID",
-      field: "id",
+      render: (item) => <Typography variant="body1">{item.id}</Typography>,
     },
     {
       title: "IMAGE",
@@ -19,7 +20,8 @@ export default function stock({}: Props): ReactElement {
     },
     {
       title: "NAME",
-      field: "name",
+      cellStyle: { minWidth: 500 },
+      render: (item) => <Typography variant="body1">{item.name}</Typography>,
     },
     {
       title: "PRICE",
