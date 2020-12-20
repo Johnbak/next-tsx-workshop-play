@@ -1,7 +1,7 @@
-export const data = [
+export const products = [
   {
     id: 34,
-    name: "Kan4",
+    name: "A",
     image: "34.jpg",
     price: 11,
     stock: 2222,
@@ -10,7 +10,7 @@ export const data = [
   },
   {
     id: 33,
-    name: "Lek",
+    name: "B",
     image: "33.jpg",
     price: 9,
     stock: 10,
@@ -19,7 +19,7 @@ export const data = [
   },
   {
     id: 32,
-    name: "test",
+    name: "C",
     image: "32.jpeg",
     price: 100,
     stock: 10,
@@ -28,7 +28,7 @@ export const data = [
   },
   {
     id: 15,
-    name: "DotMatrix LED Display",
+    name: "D",
     image: "15.jpg",
     price: 100,
     stock: 10,
@@ -37,7 +37,7 @@ export const data = [
   },
   {
     id: 14,
-    name: "4-Channel 5VDC Relay Module Relay Active High / LOW",
+    name: "E",
     image: "14.jpg",
     price: 100,
     stock: 10,
@@ -46,7 +46,7 @@ export const data = [
   },
   {
     id: 13,
-    name: "4-Channel 5VDC Relay Module Relay Active High / LOW",
+    name: "F",
     image: "13.jpg",
     price: 100,
     stock: 10,

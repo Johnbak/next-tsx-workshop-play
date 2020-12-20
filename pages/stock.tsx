@@ -3,6 +3,7 @@ import Header from "../components/layouts/header";
 import Layout from "../components/layouts/layout";
 import Menu from "../components/layouts/menu";
 import MaterialTable from "material-table";
+import { products } from "./api/dummy";
 
 interface Props {}
 
@@ -36,23 +37,7 @@ export default function stock({}: Props): ReactElement {
   return (
     <Layout>
       <div style={{ maxWidth: "100%" }}>
-        <MaterialTable
-          columns={[
-            { title: "No", field: "no" },
-            { title: "Name", field: "name" },
-          ]}
-          data={[
-            {
-              no: 1,
-              name: "Arthur Shelby",
-            },
-            {
-              no: 2,
-              name: "John Shelby",
-            },
-          ]}
-          title="Demo Title"
-        />
+        <MaterialTable columns={columns} data={products} title="Demo Title" />
       </div>
     </Layout>
   );
