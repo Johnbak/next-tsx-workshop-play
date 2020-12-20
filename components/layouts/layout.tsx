@@ -42,11 +42,13 @@ export default function Layout({ children }: Props): ReactElement {
       <main className={classes.content}>
         <Toolbar />
         <Container
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "red",
-          }}
+          style={
+            {
+              // display: "flex",
+              // justifyContent: "center",
+              // backgroundColor: "red",
+            }
+          }
         >
           {children}
         </Container>
