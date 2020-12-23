@@ -16,6 +16,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import { TextField } from "formik-material-ui";
 import { GetServerSideProps } from "next";
+import Router from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -137,7 +138,13 @@ export default function StockEdit({
             >
               Create
             </Button>
-            <Button>Cancel</Button>
+            <Button
+              onClick={() => {
+                Router.back();
+              }}
+            >
+              Cancel
+            </Button>
           </CardActions>
         </Card>
       </Form>

@@ -82,6 +82,11 @@ export default function stock({}: Props): ReactElement {
       tooltip: "Edit User",
       onClick: (event, rowData) => {
         // Do save operation
+        // Router.push(`/stock/edit?id=${rowData.id}`);
+        Router.push({
+          pathname: "/stock/edit",
+          query: { id: rowData.id },
+        });
       },
     },
     {
