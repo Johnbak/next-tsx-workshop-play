@@ -81,7 +81,7 @@ export default function StockCreate({}: Props): ReactElement {
 
             <div className={classes.field}>
               <img
-                src={`${process.env.PUBLIC_URL}/images/ic_photo.png`}
+                src={`/static/img/icon_camera.jpg`}
                 style={{ width: 25, height: 20 }}
               />
               <span
@@ -92,7 +92,7 @@ export default function StockCreate({}: Props): ReactElement {
               <input
                 type="file"
                 onChange={(e) => {
-                  e.preventDefault();
+                  e.preventDefault(); //Protect When Browse Refresh Page
                   setFieldValue("file", e.target.files[0]); // for upload
                   setFieldValue(
                     "file_obj",
@@ -144,28 +144,7 @@ export default function StockCreate({}: Props): ReactElement {
           }, 2000);
         }}
       >
-        {({ isSubmitting }) => (
-          <Form>
-            <Field component={TextField} name="name" label="Name" fullWidth />
-            <br />
-            <br />
-            <Field component={TextField} name="price" label="Price" fullWidth />
-            <br />
-            <br />
-            <Field
-              component={TextField}
-              type="number"
-              name="stock"
-              label="Stock"
-              fullWidth
-            />
-            <br />
-            <br />
-            <Button variant="contained" type="submit" disabled={isSubmitting}>
-              Submit
-            </Button>
-          </Form>
-        )}
+        {(props) => showForm(props)}
       </Formik>
     </Layout>
   );
