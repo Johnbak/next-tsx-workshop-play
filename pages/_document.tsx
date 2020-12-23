@@ -22,7 +22,7 @@ export default class _document extends Document {
             href="https://fonts.googleapis.com/icon?family=Material+Icons"
           />
         </Head>
-        <body>
+        <body style={{ backgroundColor: "#787878" }}>
           <Main />
           <NextScript />
         </body>

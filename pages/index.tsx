@@ -8,7 +8,7 @@ export default function index({}: Props): ReactElement {
 
 //Call in server-side
 index.getInitialProps = ({ res, err }) => {
-  res.writeHead(301, { Location: "/login" }); //redirect to login
+  res.writeHead(301, { Location: "/login" }); //redirect to login if maime
   res.end();
   return {};
 };

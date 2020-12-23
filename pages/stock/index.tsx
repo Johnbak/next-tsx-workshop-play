@@ -1,12 +1,14 @@
 import React, { ReactElement } from "react";
-import Header from "../components/layouts/header";
-import Layout from "../components/layouts/layout";
-import Menu from "../components/layouts/menu";
-import MaterialTable from "material-table";
-import { products } from "./api/dummy";
+import Header from "../../components/layouts/header";
+import Layout from "../../components/layouts/layout";
+import Menu from "../../components/layouts/menu";
+import MaterialTable, { Action, MTableToolbar } from "material-table";
+import { products } from "../api/dummy";
 import Typography from "@material-ui/core/Typography";
 import Moment from "react-moment";
 import NumberFormat from "react-number-format";
+import { Edit, Delete } from "@material-ui/icons";
+import { Button, Chip } from "@material-ui/core";
 
 interface Props {}
 
@@ -29,7 +31,7 @@ export default function stock({}: Props): ReactElement {
     },
     {
       title: "NAME",
-      cellStyle: { minWidth: 500 },
+      cellStyle: { minWidth: 400 },
       render: (item) => <Typography variant="body1">{item.name}</Typography>,
     },
     {
@@ -71,10 +73,45 @@ export default function stock({}: Props): ReactElement {
       ),
     },
   ];
+
+  //auto object actions: Action<any>[]
+  const actions: Action<any>[] = [
+    {
+      icon: () => <Edit color="secondary" />,
+      tooltip: "Edit User",
+      onClick: (event, rowData) => {
+        // Do save operation
+      },
+    },
+    {
+      icon: () => <Delete color="secondary" />,
+      tooltip: "Delete User",
+      onClick: (event, rowData) => {
+        // Do save operation
+      },
+    },
+  ];
   return (
     <Layout>
       <div style={{ maxWidth: "100%" }}>
-        <MaterialTable columns={columns} data={products} title="Demo Title" />
+        <MaterialTable
+          columns={columns}
+          data={products}
+          title="Peaky Blinder"
+          actions={actions}
+          components={{
+            Toolbar: (props) => (
+              <div>
+                <MTableToolbar {...props} />
+                <div style={{ padding: "0px 10px" }}>
+                  <Button variant="contained" color="primary">
+                    Create
+                  </Button>
+                </div>
+              </div>
+            ),
+          }}
+        />
       </div>
     </Layout>
   );
