@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import loginStyle from "../styles/login.style";
 import loginCSS from "../public/static/css/login.module.css";
 import { makeStyles } from "@material-ui/core/styles";
@@ -33,8 +33,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface IAccount {
+  username: string;
+  password: string;
+}
+
 export default function register({}: Props): ReactElement {
   const classes = useStyles();
+
+  const [account, setAccount] = useState<IAccount>({
+    username: "",
+    password: "",
+  });
   return (
     <React.Fragment>
       <div className={classes.container}>
@@ -51,6 +61,10 @@ export default function register({}: Props): ReactElement {
                 margin="normal"
                 required
                 fullWidth
+                value={account.username} //sync
+                onChange={(e) => {
+                  setAccount({ ...account, username: e.target.value });
+                }}
                 id="username"
                 label="Username"
                 autoComplete="email"
@@ -61,6 +75,10 @@ export default function register({}: Props): ReactElement {
                 margin="normal"
                 required
                 fullWidth
+                value={account.password}
+                onChange={(e) => {
+                  setAccount({ ...account, password: e.target.value });
+                }}
                 name="password"
                 label="Password"
                 type="password"
@@ -73,6 +91,9 @@ export default function register({}: Props): ReactElement {
                 fullWidth
                 variant="contained"
                 color="primary"
+                onClick={() => {
+                  alert(JSON.stringify(account));
+                }}
                 className={classes.submit}
               >
                 Register
