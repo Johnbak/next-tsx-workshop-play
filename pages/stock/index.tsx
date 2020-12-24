@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import Header from "../../components/layouts/header";
 import Layout from "../../components/layouts/layout";
 import Menu from "../../components/layouts/menu";
@@ -10,6 +10,7 @@ import NumberFormat from "react-number-format";
 import { Edit, Delete } from "@material-ui/icons";
 import { Button, Chip } from "@material-ui/core";
 import Router from "next/router";
+import axios from "axios";
 
 interface Props {}
 
@@ -97,12 +98,24 @@ export default function stock({}: Props): ReactElement {
       },
     },
   ];
+
+  const [data, setData] = useState([]);
+  const loadData = async () => {
+    const result = await axios.get("/api/peaky");
+    // alert(JSON.stringify(result.data));
+    setData(result.data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <Layout>
       <div style={{ maxWidth: "100%" }}>
         <MaterialTable
           columns={columns}
-          data={products}
+          data={data ? data : []} //from react hook fetch api
           title="Peaky Blinder"
           actions={actions}
           components={{
