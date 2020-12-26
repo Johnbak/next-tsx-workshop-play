@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 34,
-    name: "Aligator",
+    name: "A",
     image: "34.jpg",
     price: 11,
     stock: 2222,
