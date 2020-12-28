@@ -27,3 +27,5 @@ npx nodemon server.js
 #Install Redux for NextJs
 
 yarn add redux react-redux redux-thunk redux-saga next-redux-wrapper redux-devtools-extension
+
+
