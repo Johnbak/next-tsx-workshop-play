@@ -2,6 +2,7 @@ import React, { ReactElement } from "react";
 import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
 import Head from "next/head";
+import { wrapper } from "../redux";
 interface Props {}
 
 function PeakyApp({ Component, pageProps }: AppProps) {
@@ -16,4 +17,4 @@ function PeakyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default PeakyApp;
+export default wrapper.withRedux(PeakyApp);
