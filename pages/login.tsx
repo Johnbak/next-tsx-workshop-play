@@ -12,6 +12,9 @@ import Typography from "@material-ui/core/Typography";
 import Router from "next/router";
 import { TextField } from "formik-material-ui";
 import { Formik, Form, Field } from "formik";
+import authReducer from "../redux/reducers/auth.reducer";
+import { useSelector } from "react-redux";
+import { spawn } from "child_process";
 
 interface Props {}
 
@@ -40,6 +43,8 @@ const onClickLogin = () => {
 
 export default function login({}: Props): ReactElement {
   const classes = useStyles();
+
+  const authReducer = useSelector(({ authReducer }) => authReducer);
 
   const showForm = (props) => {
     return (
@@ -89,6 +94,7 @@ export default function login({}: Props): ReactElement {
         >
           Register
         </Button>
+        {authReducer.token && <span>{authReducer.token}</span>}
       </Form>
     );
   };
